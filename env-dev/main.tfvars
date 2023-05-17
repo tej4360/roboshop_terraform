@@ -1,6 +1,6 @@
 env = "dev"
 
-app_server {
+app_servers {
   frontend = {
     name = "frontend"
     type = "t3.micro"
@@ -33,7 +33,7 @@ app_server {
 
 }
 
-db_server {
+db_servers {
   mongodb = {
     name = "mongodb"
     type = "t3.micro"
