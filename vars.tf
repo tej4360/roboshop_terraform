@@ -30,7 +30,7 @@ variable "app_servers" {
 }
 
 variable "db_servers" {
-  defualt = {
+  default = {
     mangodb = {
       name = "mangodb"
       type = "t3.micro"
