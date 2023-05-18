@@ -1,6 +1,6 @@
 #variable "env" {}
 
-variable app_servers = {
+variable "app_servers" {
   frontend = {
     name = "frontend"
     type = "t3.micro"
