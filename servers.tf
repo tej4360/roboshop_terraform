@@ -22,6 +22,7 @@ resource "aws_instance" "db_instance" {
 }
 
 resource "aws_route53_record" "app_route53" {
+  depends_on = [aws_instance.app_servers]
   for_each = var.app_servers
   zone_id = "Z05398713LIRV3MCPOPMB"
   name    = "${each.key}rtdevopspract.online"
@@ -31,6 +32,7 @@ resource "aws_route53_record" "app_route53" {
 }
 
 resource "aws_route53_record" "db_route53" {
+  depends_on = [aws_instance.db_instance]
   for_each = var.db_servers
   zone_id = "Z05398713LIRV3MCPOPMB"
   name    = "${each.key}rtdevopspract.online"
