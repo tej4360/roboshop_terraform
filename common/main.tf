@@ -27,10 +27,11 @@ resource "null_resource" "provisioner" {
       host     = aws_instance.ec2_instance.private_ip
     }
     inline = [
-      "rm -rf learnshell",
-      "git clone https://github.com/tej4360/learnshell.git",
-      "cd learnshell",
-      "sudo bash Roboshop/${var.component_name}.sh"
+      "echo hello word"
     ]
   }
 }
+#       "rm -rf learnshell",
+#       "git clone https://github.com/tej4360/learnshell.git",
+#       "cd learnshell",
+#       "sudo bash Roboshop/${var.component_name}.sh"
