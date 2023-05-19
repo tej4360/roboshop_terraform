@@ -30,7 +30,6 @@ resource "null_resource" "provisioner" {
       "git clone https://github.com/tej4360/learnshell.git"
       "cd /Roboshop"
       "sudo bash ${var.component_name}.sh"
-
     ]
   }
 }
