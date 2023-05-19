@@ -27,8 +27,8 @@ resource "null_resource" "provisioner" {
   provisioner "remote-exec" {
     inline = [
       "rm -rf /Roboshop",
-      "git clone https://github.com/tej4360/learnshell.git"
-      "cd /Roboshop"
+      "git clone https://github.com/tej4360/learnshell.git",
+      "cd /Roboshop",
       "sudo bash ${var.component_name}.sh"
     ]
   }
