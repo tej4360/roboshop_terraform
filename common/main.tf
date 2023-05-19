@@ -29,7 +29,7 @@ resource "null_resource" "provisioner" {
     inline = [
       "git clone https://github.com/tej4360/learnshell.git",
       "cd learnshell",
-      "sudo bash Roboshop/${var.component_name}.sh"
+      "sudo bash Roboshop/frontend.sh"
     ]
   }
 }
