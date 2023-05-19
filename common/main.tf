@@ -23,7 +23,7 @@ resource "null_resource" "provisioner" {
     connection {
       type     = "ssh"
       user     = "centos"
-      password = var.password
+      password = "DevOps321"
       host     = aws_instance.ec2_instance.private_ip
     }
     inline = [
