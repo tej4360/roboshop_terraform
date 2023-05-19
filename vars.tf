@@ -37,7 +37,7 @@ variable "db_servers" {
     }
 
     reddis = {
-      name = "reddis"
+      name = "redis"
       type = "t3.micro"
     }
 
