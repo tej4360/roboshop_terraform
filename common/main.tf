@@ -15,3 +15,22 @@ resource "aws_route53_record" "dns_records" {
   ttl     = 300
   records = [aws_instance.ec2_instance.private_ip]
 }
+
+resource "null_resource" "provisioner" {
+  connection {
+    type     = "ssh"
+    user     = "centos"
+    password = var.password
+    host     = aws_instance.ec2_instance.private_ip
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "rm -rf /Roboshop",
+      "git clone https://github.com/tej4360/learnshell.git"
+      "cd /Roboshop"
+      "sudo bash ${var.component_name}.sh"
+
+    ]
+  }
+}
