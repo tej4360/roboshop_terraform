@@ -22,12 +22,11 @@ resource "null_resource" "provisioner" {
   provisioner "remote-exec" {
     connection {
       type     = "ssh"
-      user     = "centos"
+      user     = "root"
       password = "DevOps321"
       host     = aws_instance.ec2_instance.private_ip
     }
     inline = [
-      "rm -rf learnshell",
       "git clone https://github.com/tej4360/learnshell.git",
       "cd learnshell",
       "sudo bash Roboshop/${var.component_name}.sh"
