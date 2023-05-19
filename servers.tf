@@ -22,13 +22,13 @@ resource "aws_instance" "db_instance" {
 }
 
 resource "aws_route53_record" "app_route53" {
-  depends_on = [aws_instance.app_servers]
+  depends_on = [aws_instance.app_instance]
   for_each = var.app_servers
   zone_id = "Z05398713LIRV3MCPOPMB"
   name    = "${each.key}rtdevopspract.online"
   type    = "A"
   ttl     = 300
-  records = [aws_instance.aws_instance[each.value["name"]].private_ip]
+  records = [aws_instance.app_instance[each.value["name"]].private_ip]
 }
 
 resource "aws_route53_record" "db_route53" {
@@ -38,5 +38,5 @@ resource "aws_route53_record" "db_route53" {
   name    = "${each.key}rtdevopspract.online"
   type    = "A"
   ttl     = 300
-  records = [aws_instance.aws_instance[each.value["name"]].private_ip]
+  records = [aws_instance.db_instance[each.value["name"]].private_ip]
 }
