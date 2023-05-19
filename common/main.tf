@@ -13,5 +13,5 @@ resource "aws_route53_record" "dns_records" {
   name    = "${var.component_name}-dev.rtdevopspract.online"
   type    = "A"
   ttl     = 300
-  records = [aws_instance.ec2_instance[${var.component_name}].private_ip]
+  records = [aws_instance.ec2_instance[${"var.component_name"}].private_ip]
 }
