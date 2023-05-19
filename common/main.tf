@@ -17,14 +17,15 @@ resource "aws_route53_record" "dns_records" {
 }
 
 resource "null_resource" "provisioner" {
-  connection {
-    type     = "ssh"
-    user     = "centos"
-    password = var.password
-    host     = aws_instance.ec2_instance.private_ip
-  }
+  depends_on = [aws_instance.ec2_instance, aws_route53_record.dns_records]
 
   provisioner "remote-exec" {
+    connection {
+      type     = "ssh"
+      user     = "centos"
+      password = var.password
+      host     = aws_instance.ec2_instance.private_ip
+    }
     inline = [
       "rm -rf /Roboshop",
       "git clone https://github.com/tej4360/learnshell.git",
