@@ -32,24 +32,24 @@ db_servers = {
   mangodb = {
     name = "mongodb"
     type = "t3.micro"
-    password = "roboshop@1"
+    password = "Roboshop@1"
   }
 
   reddis = {
     name = "redis"
     type = "t3.micro"
-    password = "roboshop@1"
+    password = "Roboshop@1"
   }
 
   rabbitmq = {
     name = "rabbitmq"
     type = "t3.micro"
-    password = "roboshop@1"
+    password = "Roboshop@1"
   }
 
   mysql = {
     name = "mysql"
     type = "t3.micro"
-    password = "roboshop@1"
+    password = "Roboshop@1"
   }
 }
