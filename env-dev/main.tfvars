@@ -16,6 +16,7 @@ app_servers = {
   payment = {
     name = "payment"
     type = "t3.micro"
+    password = "roboshop@1"
   }
   user = {
     name = "user"
@@ -24,6 +25,7 @@ app_servers = {
   shipping = {
     name = "shipping"
     type = "t3.micro"
+    password = "roboshop@1"
   }
 }
 
