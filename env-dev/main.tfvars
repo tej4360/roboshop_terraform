@@ -27,6 +27,8 @@ app_servers = {
     type = "t3.micro"
     password = "roboshop@1"
   }
+}
+db_servers = {
   mangodb = {
     name = "mangodb"
     type = "t3.micro"
