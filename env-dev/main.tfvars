@@ -30,7 +30,7 @@ app_servers = {
 }
 db_servers = {
   mangodb = {
-    name = "mangodb"
+    name = "mongodb"
     type = "t3.micro"
     password = "roboshop@1"
   }
