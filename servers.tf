@@ -4,6 +4,7 @@ module "app_servers" {
   source = "./common"
   instance_type = each.value["type"]
   component_name = each.value["name"]
+  password = each.value["password"]
 }
 
 module "db_servers" {
@@ -11,4 +12,5 @@ module "db_servers" {
   source = "./common"
   instance_type = each.value["type"]
   component_name = each.value["name"]
+  password = each.value["password"]
 }
