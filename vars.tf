@@ -1,5 +1,5 @@
 variable "env" {}
 
-variable "app_servers" {}
+variable "servers" {}
 
 variable "db_servers" {}

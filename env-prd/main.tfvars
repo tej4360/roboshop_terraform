@@ -25,9 +25,6 @@ app_servers = {
     name = "shipping"
     type = "t3.micro"
   }
-}
-
-db_servers = {
   mangodb = {
     name = "mangodb"
     type = "t3.micro"
