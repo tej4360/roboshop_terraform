@@ -23,7 +23,7 @@ resource "null_resource" "provisioner" {
   provisioner "remote-exec" {
     connection {
       type     = "ssh"
-      user     = "root"
+      user     = "centos"
       password = "DevOps321"
       host     = aws_instance.ec2_instance.private_ip
     }
