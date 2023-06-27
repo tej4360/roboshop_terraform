@@ -13,5 +13,5 @@ module "db_servers" {
   instance_type = each.value["type"]
   component_name = each.value["name"]
   password = lookup(each.value, "password", "null")
-  provisioner = true
+  app_type = each.value["app_type"]
 }
