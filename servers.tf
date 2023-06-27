@@ -5,6 +5,7 @@ module "app_servers" {
   instance_type = each.value["type"]
   component_name = each.value["name"]
   password = lookup(each.value, "password", "null" )
+  app_type = "app"
 }
 
 module "db_servers" {
@@ -13,5 +14,5 @@ module "db_servers" {
   instance_type = each.value["type"]
   component_name = each.value["name"]
   password = lookup(each.value, "password", "null")
-  app_type = each.value["app_type"]
+  app_type = "db"
 }
