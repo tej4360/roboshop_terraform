@@ -33,23 +33,27 @@ db_servers = {
     name = "mongodb"
     type = "t3.micro"
     password = "Roboshop@1"
+    app_type= "db"
   }
 
   reddis = {
     name = "redis"
     type = "t3.micro"
     password = "Roboshop@1"
+    app_type= "db"
   }
 
   rabbitmq = {
     name = "rabbitmq"
     type = "t3.micro"
     password = "Roboshop@1"
+    app_type= "db"
   }
 
   mysql = {
     name = "mysql"
     type = "t3.micro"
     password = "Roboshop@1"
+    app_type= "db"
   }
 }
