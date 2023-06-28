@@ -17,7 +17,7 @@ resource "aws_route53_record" "dns_records" {
 }
 
 resource "null_resource" "provisioner" {
-#  count = var.provisioner ? 1 : 0
+  count = var.provisioner ? 1 : 0
   depends_on = [aws_instance.ec2_instance, aws_route53_record.dns_records]
 
   provisioner "remote-exec" {
@@ -27,12 +27,12 @@ resource "null_resource" "provisioner" {
       password = "DevOps321"
       host     = aws_instance.ec2_instance.private_ip
     }
-#    inline = [
-#      "rm -rf learnshell",
-#      "git clone https://github.com/tej4360/learnshell.git",
-#      "cd learnshell",
-#      "sudo bash Roboshop/${var.component_name}.sh ${var.password} -y"
-#    ]
-    inline = var.app_type == "db" ? local.db_commands : local.app_commands
+     inline = [
+       "rm -rf learnshell",
+       "git clone https://github.com/tej4360/learnshell.git",
+       "cd learnshell",
+       "sudo bash Roboshop/${var.component_name}.sh ${var.password} -y"
+     ]
+#    inline = var.app_type == "db" ? local.db_commands : local.app_commands
   }
 }

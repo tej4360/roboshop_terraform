@@ -17,4 +17,5 @@ module "db_servers" {
   password = lookup(each.value, "password", "null")
   app_type = "db"
   env= var.env
+  provisioner = true
 }
