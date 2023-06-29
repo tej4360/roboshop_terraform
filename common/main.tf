@@ -71,26 +71,26 @@ resource "aws_iam_role_policy" "ssm_role_policy" {
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
   policy = jsonencode({
+    "Version": "2012-10-17",
     "Statement": [
       {
+        "Sid": "VisualEditor0",
+        "Effect": "Allow",
         "Action": [
           "ssm:GetParameterHistory",
           "ssm:GetParametersByPath",
           "ssm:GetParameters",
           "ssm:GetParameter"
         ],
-        "Effect": "Allow",
-        "Resource": "arn:aws:ssm:us-east-1:318708475688:parameter/${var.env}.*",
-        "Sid": "VisualEditor0"
+        "Resource": "arn:aws:ssm:us-east-1:318708475688:parameter/dev.*"
       },
       {
-        "Action": "ssm:DescribeParameters",
+        "Sid": "VisualEditor1",
         "Effect": "Allow",
-        "Resource": "*",
-        "Sid": "VisualEditor1"
+        "Action": "ssm:DescribeParameters",
+        "Resource": "*"
       }
-    ],
-    "Version": "2012-10-17"
+    ]
   })
 
 }
