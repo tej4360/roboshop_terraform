@@ -36,3 +36,24 @@ resource "null_resource" "provisioner" {
     inline = var.app_type == "db" ? local.db_commands : local.app_commands
   }
 }
+
+resource "aws_iam_role" "ssm-role" {
+  name = "${var.env}-${var.component_name}-role"
+
+  assume_role_policy = jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "sts:AssumeRole"
+        ],
+        "Principal": {
+          "Service": [
+            "ec2.amazonaws.com"
+          ]
+        }
+      }
+    ]
+  })
+}
