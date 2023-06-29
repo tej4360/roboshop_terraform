@@ -60,7 +60,7 @@ resource "aws_iam_role" "ssm-role" {
 
 resource "aws_iam_role_policy" "ssm_role_policy" {
   name = "${var.env}-${var.component_name}-policy"
-  role = "aws_iam_role.${var.env}-${var.component_name}-role.id"
+  role = aws_iam_role.ssm-role.id
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
