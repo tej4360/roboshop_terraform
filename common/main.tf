@@ -59,8 +59,8 @@ resource "aws_iam_role" "ssm-role" {
 }
 
 resource "aws_iam_role_policy" "ssm_role_policy" {
-  name = "${var.env}-${var.component_name}-policy
-  role = aws_iam_role.${var.env}-${var.component_name}-role.id
+  name = "${var.env}-${var.component_name}-policy"
+  role = "aws_iam_role.${var.env}-${var.component_name}-role.id"
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
@@ -76,7 +76,7 @@ resource "aws_iam_role_policy" "ssm_role_policy" {
 				"ssm:GetParameters",
 				"ssm:GetParameter"
 			],
-			"Resource": "arn:aws:ssm:us-east-1:318708475688:parameter/${var.env}.${var.component}.*"
+			"Resource": "arn:aws:ssm:us-east-1:318708475688:parameter/${var.env}.${var.component_name}.*"
 		},
 		{
 			"Sid": "VisualEditor1",
