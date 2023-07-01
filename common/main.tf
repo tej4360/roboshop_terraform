@@ -11,7 +11,7 @@ resource "aws_instance" "ec2_instance" {
 
 resource "aws_route53_record" "dns_records" {
   zone_id = "Z05398713LIRV3MCPOPMB"
-  name    = "${var.component_name}-dev.rtdevopspract.online"
+  name    = "dev-${var.component_name}.rtdevopspract.online"
   type    = "A"
   ttl     = 300
   records = [aws_instance.ec2_instance.private_ip]
