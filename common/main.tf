@@ -82,7 +82,7 @@ resource "aws_iam_role_policy" "ssm_role_policy" {
           "ssm:GetParameters",
           "ssm:GetParameter"
         ],
-        "Resource": "arn:aws:ssm:us-east-1:318708475688:parameter/${var.env}.${var.component_name}.*"
+        "Resource": "arn:aws:ssm:us-east-1:318708475688:parameter/${var.env}.*"
       },
       {
         "Sid": "VisualEditor1",
