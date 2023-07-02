@@ -92,6 +92,5 @@ resource "aws_iam_role_policy" "ssm_role_policy" {
       }
     ]
   })
-
 }
 
