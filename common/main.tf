@@ -81,7 +81,7 @@ resource "aws_iam_role_policy" "ssm_role_policy" {
         "Sid": "VisualEditor0",
         "Effect": "Allow",
         "Action": "kms:Decrypt",
-        "Resource": "arn:aws:kms:us-east-1:318708475688:key/arn:aws:kms:us-east-1:318708475688:key/b051b135-92e8-49ff-a98f-5f141dbc8087"
+        "Resource": "arn:aws:kms:us-east-1:318708475688:key/b051b135-92e8-49ff-a98f-5f141dbc8087"
       },
       {
         "Sid": "VisualEditor0",
