@@ -88,7 +88,7 @@ resource "aws_iam_role_policy" "ssm_role_policy" {
           "ssm:GetParameter"
         ],
         "Resource": [
-          "arn:aws:ssm:us-east-1:318708475688:parameter/dev-componet.*",
+          "arn:aws:ssm:us-east-1:318708475688:parameter/${var.env}.*",
           "arn:aws:kms:us-east-1:318708475688:key/b051b135-92e8-49ff-a98f-5f141dbc8087"
         ]
       },
