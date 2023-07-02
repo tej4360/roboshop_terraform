@@ -42,7 +42,7 @@ db_servers = {
   }
 
   rabbitmq = {
-    name = "rabbitmq"
+    name = "rabitmq"
     type = "t3.micro"
     password = "Roboshop@1"
   }
