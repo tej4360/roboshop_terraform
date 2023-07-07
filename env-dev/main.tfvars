@@ -24,7 +24,7 @@ app_servers = {
   }
   shipping = {
     name = "shipping"
-    type = "t3.micro"
+    type = "t3.medium"
     password = "Roboshop@1"
   }
 }
