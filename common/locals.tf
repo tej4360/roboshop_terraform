@@ -14,7 +14,7 @@ locals {
 
   app_tags = {
     Name = "${var.env}-${var.component_name}"
-    monitor = true
+    monitor = "true"
   }
 
   db_tags = {
