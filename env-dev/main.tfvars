@@ -3,7 +3,7 @@ env ="dev"
 app_servers = {
   frontend = {
     name = "frontend"
-    type = "t3.micro"
+    type = "t3.small"
   }
   catalogue = {
     name = "catalogue"
