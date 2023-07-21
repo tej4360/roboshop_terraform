@@ -14,10 +14,13 @@ locals {
 
   app_tags = {
     Name = "${var.env}-${var.component_name}"
-    Monitor = "true"
+    monitor = "true"
+    env= "${var.env}"
   }
 
   db_tags = {
     Name = "${var.env}-${var.component_name}"
+
+
   }
 }
