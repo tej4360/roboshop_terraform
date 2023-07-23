@@ -3,15 +3,15 @@ env ="dev"
 app_servers = {
   frontend = {
     name = "frontend"
-    type = "t3.small"
+    type = "t3.medium"
   }
   catalogue = {
     name = "catalogue"
-    type = "t3.micro"
+    type = "t3.small"
   }
   cart = {
     name = "cart"
-    type = "t3.micro"
+    type = "t3.small"
   }
   payment = {
     name = "payment"
@@ -20,7 +20,7 @@ app_servers = {
   }
   user = {
     name = "user"
-    type = "t3.micro"
+    type = "t3.small"
   }
   shipping = {
     name = "shipping"
