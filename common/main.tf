@@ -2,7 +2,7 @@ resource "aws_instance" "ec2_instance" {
   ami                    = data.aws_ami.ec2_ami.image_id
   instance_type          = var.instance_type
   vpc_security_group_ids = [ data.aws_security_group.allow-all.id ]
-#  iam_instance_profile = aws_iam_instance_profile.iam_instance_profile.name
+  iam_instance_profile = aws_iam_instance_profile.iam_instance_profile.name
   tags = var.app_type == "app" ? local.app_tags : local.db_tags
 #  tags = {
 #    Name = var.component_name
@@ -41,64 +41,64 @@ resource "null_resource" "provisioner" {
     inline = var.app_type == "db" ? local.db_commands : local.app_commands
   }
 }
-#
-#resource "aws_iam_instance_profile" "iam_instance_profile" {
-#  name = "${var.env}.${var.component_name}-instance-profile"
-#  role = aws_iam_role.ssm-role.name
-#}
-#
-#resource "aws_iam_role" "ssm-role" {
-#  name = "${var.env}-${var.component_name}-role"
-#
-#  assume_role_policy = jsonencode({
-#    "Version": "2012-10-17",
-#    "Statement": [
-#      {
-#        "Effect": "Allow",
-#        "Action": [
-#          "sts:AssumeRole"
-#        ],
-#        "Principal": {
-#          "Service": [
-#            "ec2.amazonaws.com"
-#          ]
-#        }
-#      }
-#    ]
-#  })
-#}
-#
-#resource "aws_iam_role_policy" "ssm_role_policy" {
-#  name = "${var.env}-${var.component_name}-policy"
-#  role = aws_iam_role.ssm-role.name
-#
-#  # Terraform's "jsonencode" function converts a
-#  # Terraform expression result to valid JSON syntax.
-#  policy = jsonencode({
-#    "Version": "2012-10-17",
-#    "Statement": [
-#      {
-#        "Sid": "VisualEditor0",
-#        "Effect": "Allow",
-#        "Action": [
-#          "kms:Decrypt",
-#          "ssm:GetParameterHistory",
-#          "ssm:GetParametersByPath",
-#          "ssm:GetParameters",
-#          "ssm:GetParameter"
-#        ],
-#        "Resource": [
-#          "arn:aws:ssm:us-east-1:318708475688:parameter/${var.env}.*",
-#          "arn:aws:kms:us-east-1:318708475688:key/b051b135-92e8-49ff-a98f-5f141dbc8087"
-#        ]
-#      },
-#      {
-#        "Sid": "VisualEditor1",
-#        "Effect": "Allow",
-#        "Action": "ssm:DescribeParameters",
-#        "Resource": "*"
-#      }
-#    ]
-#  })
-#}
+
+resource "aws_iam_instance_profile" "iam_instance_profile" {
+  name = "${var.env}.${var.component_name}-instance-profile"
+  role = aws_iam_role.ssm-role.name
+}
+
+resource "aws_iam_role" "ssm-role" {
+  name = "${var.env}-${var.component_name}-role"
+
+  assume_role_policy = jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "sts:AssumeRole"
+        ],
+        "Principal": {
+          "Service": [
+            "ec2.amazonaws.com"
+          ]
+        }
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy" "ssm_role_policy" {
+  name = "${var.env}-${var.component_name}-policy"
+  role = aws_iam_role.ssm-role.name
+
+  # Terraform's "jsonencode" function converts a
+  # Terraform expression result to valid JSON syntax.
+  policy = jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "VisualEditor0",
+        "Effect": "Allow",
+        "Action": [
+          "kms:Decrypt",
+          "ssm:GetParameterHistory",
+          "ssm:GetParametersByPath",
+          "ssm:GetParameters",
+          "ssm:GetParameter"
+        ],
+        "Resource": [
+          "arn:aws:ssm:us-east-1:318708475688:parameter/${var.env}.*",
+          "arn:aws:kms:us-east-1:318708475688:key/b051b135-92e8-49ff-a98f-5f141dbc8087"
+        ]
+      },
+      {
+        "Sid": "VisualEditor1",
+        "Effect": "Allow",
+        "Action": "ssm:DescribeParameters",
+        "Resource": "*"
+      }
+    ]
+  })
+}
 ##
