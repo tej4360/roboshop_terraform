@@ -43,7 +43,7 @@ resource "null_resource" "provisioner" {
 }
 
 resource "aws_iam_instance_profile" "iam_instance_profile" {
-  name = "${var.env}.${var.component_name}-instance-profile"
+  name = "${var.env}.${var.component_name}-instance-profile2"
   role = aws_iam_role.ssm-role.name
 }
 
